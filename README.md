@@ -18,6 +18,8 @@ context.
 The algorithms come in two flavours, an in-sample and an out-of-sample version.
 Both of these are implemented here.
 
+## Alternative
+
 There is another implementation of these algorithms available on CRAN via the
 [MCS](https://cran.r-project.org/web/packages/MCS/index.html) package. Maybe
 some of the code from here can be merged to over there or results from the two
@@ -25,10 +27,12 @@ packages could be compared for correctness and efficiency.
 
 ## Installation 
 
-Straight from github via `devtools::install_github("nielsaka/modelconf.git")`.
+Straight from github via `devtools::install_github("nielsaka/modelconf")`.
 
-Locally, the package can be installed using the command line and 
-`R CMD INSTALL /path/to/modelconf`. If the package has been installed before, it
+#### Local build
+
+Locally, the package can be installed using `R CMD INSTALL /path/to/modelconf`
+on the command line. If the package has been installed before, it
 might be necessary to enable the pre-clean option. With devtools, use
 `options(devtools.install.args = "--preclean")` to remove previously built
 binary files or `R CMD INSTALL --preclean /path/to/modelconf` on the command
