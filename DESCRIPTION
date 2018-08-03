@@ -1,0 +1,28 @@
+Package: modelconf
+Type: Package
+Title: Estimation of Model Confidence Sets
+Version: 0.1.0
+Date: 2018-8-03
+Authors@R: c(
+    person( given  = "Niels",
+            family = "Aka",
+            email  = "nielsaka@outlook.com",
+            role   = c("aut", "cre")
+          ),
+    person( given  = "Rolf",
+            family = "Tschernig",
+            role   = "aut"
+          )
+  )
+Description: This package offers an implementation of the algorithms developed
+  by Hansen, Lunde and Nason (2011). The authors introduce the notion of a model 
+  confidence set (MCS) to account for the degree of uncertainty surrounding model
+  selection. In analogy to confidence intervals for population parameters, 
+  the MCS methodology estimates a set of models that is expected to contain 
+  the best model(s) with a given probability.
+License: MIT + file LICENSE
+Classification/JEL: C12, C52, C53
+LinkingTo: Rcpp
+Imports: Rcpp, RcppEigen, Matrix
+Suggests: np
+RoxygenNote: 6.0.1

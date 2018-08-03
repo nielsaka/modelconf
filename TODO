@@ -1,0 +1,37 @@
+TODO
+----
+
+* vignette with comparison of packages "MCS" and "MCSalt"
+	- how to use
+	- replication of HNL2011
+	- performance benchmark
+* documentation
+  - package overview
+	- estMCS.quick
+  - estMCS.reg
+  - SW_infl4cast
+  - TR_regs
+* add any of these to README:
+    - Getting Started
+    - Prerequisites
+    - Usage
+    - Contributing
+    - Credits
+* unit tests?
+* coverage via covr?
+
+
+# DONE
+
+#### 2018-08-03
+
+* changed package name; less cryptic(?)
+* README:how to install (from github). about.
+
+#### 23.03.2018
+
+* changed license to MIT; added license file
+
+#### 8/9.11.2017
+
+* docs for estMCS()
