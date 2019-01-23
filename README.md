@@ -5,17 +5,10 @@ These sets account for the uncertainty surrounding model choice.
 
 ## About
 
-This repository offers an implementation written in R of the algorithms
-described by [Hansen, Lunde and Nason (2011)](https://doi.org/10.3982/ECTA5771)
-in their Econometrica paper. There, they develop procedures for estimating model
-confidence sets that are expected to contain all best model(s) with a given
-probability. Interpretation of the confidence set is therefore analogous to
-confidence intervals for population parameters. The notion of a confidence set
-is particularly useful in situations where competing model specifications are
-available and it is uncertain which model will be appropriate in a certain
-context.
+This repository offers an implementation written in R of the algorithms for estimating model confidence sets and which were developed by [Hansen, Lunde and Nason (2011)](https://doi.org/10.3982/ECTA5771)
+in their Econometrica paper. Model confidence sets are sets of models that are expected to contain all best model(s) with a given probability. Interpretation of the confidence set is therefore analogous to confidence intervals for population parameters. The notion of a confidence set is particularly useful in situations where competing model specifications are available and it is uncertain which model will be appropriate in a certain context.
 
-The algorithms come in two flavours, an in-sample and an out-of-sample version.
+The algorithm comes in two flavours, an in-sample and an out-of-sample version.
 Both of these are implemented here.
 
 ## Alternative
