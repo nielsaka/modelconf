@@ -12,6 +12,9 @@ TODO
   - estMCS.reg
   - SW_infl4cast
   - TR_regs
+* rename data sets
+  - SW_inflation_forecasts
+  - TR_regs
 * add any of these to README:
     - Getting Started
     - Prerequisites

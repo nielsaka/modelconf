@@ -1,0 +1,51 @@
+---
+title: "Reproducing Hansen, Lunde and Nason (2011)"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Reproducing}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+This is the vignette. 
+
+* intro
+  + why? illustrate R functions; show correctness; compare to MCS
+  + what? application in HLN 2011. which page? which table? 
+  
+* SW inflation forecasts 
+
+Out-of-sample version
+different t-stats
+timing?
+
+```{r}
+data(SW_infl4cast)
+data <- as.matrix(SW_infl4cast)
+loss <- (data[, -1] - data[, 1])^2 # compute squared errors
+
+# Estimate MCS same way that Hansen, Lunde, Nason (2011) did.
+# Note: "t.min" should not be used in practice.
+
+my_MCS <- estMCS(loss, test = "t.min", B = 25000, l = 12)
+
+my_MCS
+```
+
+Results are equivalent (up to rounding and simulation error) in column 1 of page 485 in Hansen, Lunde and Nason (2011).
+
+-->>>>>>>> What is shown in table? Contents??
+
+
+```{r}
+my_MCS[my.MCS[, "MCS p-val"] > 0.1, ] # actual, estimated MCS at alpha = 0.1
+```
+
+
+* Taylor Rule regressions
+
+In-sample version
+KLIC, AIC, ...
+timing?
+
+* Conclusion
