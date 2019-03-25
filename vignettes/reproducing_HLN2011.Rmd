@@ -5,6 +5,7 @@ vignette: >
   %\VignetteIndexEntry{Reproducing}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
+bibliography: lit.bib
 ---
 
 This is the vignette. 
@@ -20,6 +21,7 @@ different t-stats
 timing?
 
 ```{r}
+library(modelconf)
 data(SW_infl4cast)
 data <- as.matrix(SW_infl4cast)
 loss <- (data[, -1] - data[, 1])^2 # compute squared errors
@@ -32,13 +34,13 @@ my_MCS <- estMCS(loss, test = "t.min", B = 25000, l = 12)
 my_MCS
 ```
 
-Results are equivalent (up to rounding and simulation error) in column 1 of page 485 in Hansen, Lunde and Nason (2011).
+Results are equivalent (up to rounding and simulation error) in column 1 of page 485 in @HansenLundeNason2011Model.
 
 -->>>>>>>> What is shown in table? Contents??
 
 
 ```{r}
-my_MCS[my.MCS[, "MCS p-val"] > 0.1, ] # actual, estimated MCS at alpha = 0.1
+my_MCS[my_MCS[, "MCS p-val"] > 0.1, ] # actual, estimated MCS at alpha = 0.1
 ```
 
 
@@ -59,6 +61,10 @@ Here, I will compare the accuracy and the performance of the three implementatio
 
 As example data; I will use the inflation forecast exercise by Stock and Watson (CITE) which was also studied as a test case by HLN (CITE). Results can therefore be compared with results therein. At least to a certain degree, because the orignial work by HLN contained a coding error. Due to a wrong sign, the test statistic used was t_min instead of t_max. While still consistent, the t_min statistic violates one of the assumptions made in HLN (which assumption specifically? see [Corrigendum][https://9b31dea8-a-62cb3a1a-s-sites.googlegroups.com/site/peterreinhardhansen/research-papers/themodelconfidenceset/CorrigendumAll.pdf?attachauth=ANoY7cpS8f8NinjW-h4-_dAYqEhTW9YPSqselKXM0iEWr9qPuZXyRGTZtfpZ0n07LdnOQaca3C_QFvf5AxNBLv5fgNO07QJgo68B1hkrMUFqFEk4BcpX4GJh1l2vszEw8qfpgBFfZg01PznNHSQJ6J2qOpY-dD3Kr1-9a_jDN9DXQxKXh_zYk4HYFa7qxF115ALLUTRy23XeJFVUUIlN9b4ugwj1beEx5p8vbGEs4PeDF1NHcYvItG4um2gPYbHO42exCsUKi-kTQFhjL-arUdxSLRTkc7yeRA%3D%3D&attredirects=0])
 
+When comparing to the original work, this error must be taken into account. Luckily, the *modelconf* package can produce results using both the correct and the inadvertantly used test statistic. 
+
+
+
 (caveat: t_max vs. t_min: coding error <- comment)
 
 
@@ -73,3 +79,5 @@ Cite: HLN econometrica paper
 
 
 * Conclusion
+
+# References
