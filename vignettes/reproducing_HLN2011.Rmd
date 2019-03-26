@@ -52,16 +52,16 @@ timing?
 
 ## Alternatives
 
-There are two other implementations of the MCS procedure available in R. One is provided by the [MCS package][https://cran.r-project.org/web/packages/MCS/index.html], the other by the [rugarch package][https://cran.r-project.org/web/packages/rugarch/index.html]. Both of them focus on the out-of-sample variant and leave the in-sample variant aside.
+There are two other implementations of the MCS procedure available in R. One is provided by the [MCS package](https://cran.r-project.org/web/packages/MCS/index.html), the other by the [rugarch package](https://cran.r-project.org/web/packages/rugarch/index.html). Both of them focus on the out-of-sample variant and leave the in-sample variant aside.
 
 PLUS: https://insightr.wordpress.com/2017/09/03/combining-and-comparing-models-using-model-confidence-set/
 quick and dirty by Gabriel Vasconcelos
 
 Here, I will compare the accuracy and the performance of the three implementations. 
 
-As example data; I will use the inflation forecast exercise by Stock and Watson (CITE) which was also studied as a test case by HLN (CITE). Results can therefore be compared with results therein. At least to a certain degree, because the orignial work by HLN contained a coding error. Due to a wrong sign, the test statistic used was t_min instead of t_max. While still consistent, the t_min statistic violates one of the assumptions made in HLN (which assumption specifically? see [Corrigendum][https://9b31dea8-a-62cb3a1a-s-sites.googlegroups.com/site/peterreinhardhansen/research-papers/themodelconfidenceset/CorrigendumAll.pdf?attachauth=ANoY7cpS8f8NinjW-h4-_dAYqEhTW9YPSqselKXM0iEWr9qPuZXyRGTZtfpZ0n07LdnOQaca3C_QFvf5AxNBLv5fgNO07QJgo68B1hkrMUFqFEk4BcpX4GJh1l2vszEw8qfpgBFfZg01PznNHSQJ6J2qOpY-dD3Kr1-9a_jDN9DXQxKXh_zYk4HYFa7qxF115ALLUTRy23XeJFVUUIlN9b4ugwj1beEx5p8vbGEs4PeDF1NHcYvItG4um2gPYbHO42exCsUKi-kTQFhjL-arUdxSLRTkc7yeRA%3D%3D&attredirects=0])
+As example data; I will use the inflation forecast exercise by @StockWatson1999Forecasting which was also studied as a test case by @HansenLundeNason2011Model. Results can therefore be compared with results therein. At least to a certain degree, because the orignial work by @HansenLundeNason2011Model contained a coding error. Due to a wrong sign, the test statistic used was t_min instead of t_max. While still consistent, the t_min statistic violates one of the assumptions made in HLN (which assumption specifically? see [Corrigendum](https://9b31dea8-a-62cb3a1a-s-sites.googlegroups.com/site/peterreinhardhansen/research-papers/themodelconfidenceset/CorrigendumAll.pdf?attachauth=ANoY7cpS8f8NinjW-h4-_dAYqEhTW9YPSqselKXM0iEWr9qPuZXyRGTZtfpZ0n07LdnOQaca3C_QFvf5AxNBLv5fgNO07QJgo68B1hkrMUFqFEk4BcpX4GJh1l2vszEw8qfpgBFfZg01PznNHSQJ6J2qOpY-dD3Kr1-9a_jDN9DXQxKXh_zYk4HYFa7qxF115ALLUTRy23XeJFVUUIlN9b4ugwj1beEx5p8vbGEs4PeDF1NHcYvItG4um2gPYbHO42exCsUKi-kTQFhjL-arUdxSLRTkc7yeRA%3D%3D&attredirects=0])
 
-When comparing to the original work, this error must be taken into account. Luckily, the *modelconf* package can produce results using both the correct and the inadvertantly used test statistic. 
+When comparing to the original work, this error must be taken into account. Luckily, the *modelconf* package can produce results using both the correct and the inadvertantly used test statistic.
 
 
 
