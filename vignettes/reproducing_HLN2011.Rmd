@@ -8,11 +8,27 @@ vignette: >
 bibliography: lit.bib
 ---
 
-This is the vignette. 
+# Intro
 
-* intro
-  + why? illustrate R functions; show correctness; compare to MCS
-  + what? application in HLN 2011. which page? which table? 
+This text will provide examples of the main functions of this package. These functions estimate model confidence sets (MCS) based on a set of competing model specifications that are provided by the user. The functions are therefore useful if you want to account for the uncertainty surround you choice of model. Hopefully, by the end of this text you will have a better idea of what these confidence sets are and how to use them. The functionality has already been implemented elsewhere in R, so you might wonder why I follow the fruitless task of creating this package and this vignette. The answer is simple and twofold. First, to practise. I want to finish my first, half-baked attempt at creating an R package. Second, I will compare the accuracy and efficiency of the different implementations available in R.
+
+# A First Glance
+
+Let's get going. As a first example, we will look at 
+
+CONTINUE: create ar, time trend, intercept, RW? arch, dummies? and compete
+```{r}
+data(EuStockMarkets)
+?EuStockMarkets
+```
+
+
+
+
+
+
+
+what? application in HLN 2011. which page? which table? 
   
 * SW inflation forecasts 
 
