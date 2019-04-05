@@ -18,8 +18,44 @@ Let's get going. As a first example, we will look at
 
 CONTINUE: create ar, time trend, intercept, RW? arch, dummies? and compete
 ```{r}
+# ?datasets::EuStockMarkets
 data(EuStockMarkets)
-?EuStockMarkets
+colnames(EuStockMarkets)
+str(EuStockMarkets)
+class(EuStockMarkets)
+
+
+typeof(EuStockMarkets)
+
+DAX <- EuStockMarkets[, 1]
+plot(DAX)
+plot(log(DAX))
+
+# change in DAX level
+y <- diff(log(DAX))
+
+# I need rolling forecasts ... 
+# -> re-use helper functions from elsewhere...
+
+# AR
+ar(y, order.max = 5, aic = FALSE)
+
+# RW = no-change = 0 / intercept?
+lm(DAX ~ lag(DAX)) # how to impose NOT ACTUALLY LAGGED...
+
+# Time-trend -> will be intercept of change?
+lm(DAX ~ seq_along(DAX))
+lm(y ~ 1)
+
+# Week-of-day Dummies
+# need to match with date...
+# 2.01.1991 - 31.12.1998 ? 
+# which are business dates?
+ALL TO COMPLICATED; keep it simple. three models at most.
+
+# GARCH
+# check out last assignment again...
+
 ```
 
 
