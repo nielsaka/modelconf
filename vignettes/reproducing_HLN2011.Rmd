@@ -33,6 +33,7 @@ plot(log(DAX))
 
 # change in DAX level
 y <- diff(log(DAX))
+plot(y)
 
 # I need rolling forecasts ... 
 # -> re-use helper functions from elsewhere...
@@ -41,7 +42,13 @@ y <- diff(log(DAX))
 ar(y, order.max = 5, aic = FALSE)
 
 # RW = no-change = 0 / intercept?
-lm(DAX ~ lag(DAX)) # how to impose NOT ACTUALLY LAGGED...
+y_pred = 0
+
+# drift?
+lm(y ~ + 1)
+
+# two unit roots? several or fractional unit roots?
+lmy(y ~ lag(y)) # how to impose? NOT ACTUALLY LAGGED...
 
 # Time-trend -> will be intercept of change?
 lm(DAX ~ seq_along(DAX))
