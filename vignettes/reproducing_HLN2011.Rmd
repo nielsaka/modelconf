@@ -20,16 +20,16 @@ CONTINUE: create ar, time trend, intercept, RW? arch, dummies? and compete
 ```{r}
 # ?datasets::EuStockMarkets
 data(EuStockMarkets)
-colnames(EuStockMarkets)
-str(EuStockMarkets)
-class(EuStockMarkets)
+#colnames(EuStockMarkets)
+#str(EuStockMarkets)
+#class(EuStockMarkets)
+?EuStockMarkets
 
-
-typeof(EuStockMarkets)
+#typeof(EuStockMarkets)
 
 DAX <- EuStockMarkets[, 1]
 plot(DAX)
-plot(log(DAX))
+
 
 # change in DAX level
 y <- diff(log(DAX))
@@ -42,31 +42,49 @@ plot(y)
 ar(y, order.max = 5, aic = FALSE)
 
 # RW = no-change = 0 / intercept?
-y_pred = 0
+y_pred = 0 # no change forecast
 
 # drift?
 lm(y ~ + 1)
 
 # two unit roots? several or fractional unit roots?
-lmy(y ~ lag(y)) # how to impose? NOT ACTUALLY LAGGED...
+y_l0 <- embed(y, 2)[, 1]
+y_l1 <- embed(y, 2)[, 2]
+lm(y_l0 ~ y_l1) # makes any sense?
 
-# Time-trend -> will be intercept of change?
-lm(DAX ~ seq_along(DAX))
+# Time-trend -> will be intercept of change? indeed.
+lm(log(DAX) ~ seq_along(DAX))
 lm(y ~ 1)
 
+plot(log(DAX), ylim = c(7, 9))
+# abline(lm(log(DAX) ~ I(seq_along(DAX)/4 + 1992)))
+# abline(lm(log(DAX) ~ seq_along(DAX)))
+cf = lm(log(DAX) ~ seq_along(DAX))$coef
+
+a = cf[1] - cf[2]*400 * (1991.496+0.25)
+b = cf[2] * 400
+
+abline(h = cf[1])
+abline(a = a, b = b)
+
+# argh..., scrap the time dimension
+ldax <- log(DAX)
+attributes(ldax) <- NULL
+
+plot(ldax, type = "l")
+abline(lm(ldax ~ seq_along(ldax))) # looks really off, but just for illustration
+
+# Don't do:
 # Week-of-day Dummies
 # need to match with date...
 # 2.01.1991 - 31.12.1998 ? 
 # which are business dates?
-ALL TO COMPLICATED; keep it simple. three models at most.
 
 # GARCH
 # check out last assignment again...
 
+# ALL TO COMPLICATED; keep it simple. three models at most.
 ```
-
-
-
 
 
 
