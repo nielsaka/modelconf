@@ -55,6 +55,8 @@
 #' ### Reproducing the results in Hansen, Lunde and Nason (2011),
 #' ### p. 485, column 1.
 #'
+#' library(modelconf)
+#'
 #' data(SW_infl4cast)
 #' data <- as.matrix(SW_infl4cast)
 #' loss <- (data[, -1] - data[, 1])^2 # compute squared errors
@@ -62,8 +64,10 @@
 #' # Estimate MCS same way that Hansen, Lunde, Nason (2011) did.
 #' # Note: "t.min" should not be used in practice.
 #'
-#' (my.MCS <- estMCS(loss, test = "t.min", B = 25000, l = 12))
-#' my.MCS[my.MCS[, "MCS p-val"] > 0.1, ] # actual, estimated MCS at alpha = 0.1
+#' (my_MCS <- estMCS(loss, test = "t.min", B = 25000, l = 12))
+#' # estimated 90% model confidence set
+#' my_MCS[my_MCS[, "MCS p-val"] > 0.1, ]
+#'
 #' @export
 estMCS <-
 function(loss, test="t.range", B=1000, l=2){

@@ -25,6 +25,8 @@
 #' @references Hansen, P. R., Lunde, A., Nason, J. M. 2011. "The Model
 #'   Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
 #' @examples
+#' library(modelconf)
+#'
 #' data(SW_infl4cast)
 #' data <- as.matrix(SW_infl4cast)
 #' loss <- (data[, -1] - data[, 1])^2 # compute squared errors

@@ -42,6 +42,8 @@ be computationally less burdensome, because it stops once the MCS p-value
 is above the specified significance level \code{alpha}.
 }
 \examples{
+library(modelconf)
+
 data(SW_infl4cast)
 data <- as.matrix(SW_infl4cast)
 loss <- (data[, -1] - data[, 1])^2 # compute squared errors

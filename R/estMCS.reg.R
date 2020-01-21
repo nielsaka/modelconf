@@ -35,6 +35,8 @@
 #'   Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
 #'
 #' @examples
+#' library(modelconf)
+#'
 #' data(TR_regs)
 #' my_data <- as.matrix(TR_regs[-(1:36),
 #'              c("FFR", "Constant", "GDPD.I", "GAP_HP", "UMP.gap", "Lab.Cost")])
@@ -51,7 +53,7 @@
 #' names(models) <- paste0("model_", seq_along(models))
 #' (my_mcs <- estMCS.reg(my_data, models, B = 20000, l = 5))
 #'
-#' # The estimated 90% MCS according to AIC
+#' # The estimated 90% model confidence set according to AIC
 #' my_mcs[my_mcs[, "AIC_pval"] > 1-0.9, ]
 #'
 #' @export
