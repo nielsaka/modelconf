@@ -22,9 +22,9 @@ Available tests are "t.max", "t.range", and "t.min".}
 }
 \value{
 A vector of length (m* x 1), where m* is the estimated number of
-  superior models. The elements of the vector are integers and specify the
-  models which are inside the estimated MCS. They refer to the order in which
-  they occurred as columns in \code{loss}.
+superior models. The elements of the vector are integers and specify the
+models which are inside the estimated MCS. They refer to the order in which
+they occurred as columns in \code{loss}.
 }
 \description{
 Given estimated losses of different models, this function will estimate a
@@ -55,7 +55,7 @@ all(my_MCS == which(my_MCS_all[, "MCS p-val"] > 0.1))
 }
 \references{
 Hansen, P. R., Lunde, A., Nason, J. M. 2011. "The Model
-  Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
+Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
 }
 \seealso{
 \code{\link{estMCS}}, \code{\link{estMCS.reg}}.

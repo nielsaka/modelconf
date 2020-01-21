@@ -20,12 +20,12 @@ Available tests are "t.max", "t.range", and "t.min".}
 }
 \value{
 A matrix of size (m x 3). The first column enumerates the models in
-  the same order as they occurred in \code{loss}. The second column contains
-  the p-value associated with the test that removed that particular model
-  from the set. The third column contains the MCS p-values. These are useful
-  for reading off which models would be included in the estimated MCS for any
-  particular significance level.
-  The matrix will have row names equal to the column names of \code{loss}.
+the same order as they occurred in \code{loss}. The second column contains
+the p-value associated with the test that removed that particular model
+from the set. The third column contains the MCS p-values. These are useful
+for reading off which models would be included in the estimated MCS for any
+particular significance level.
+The matrix will have row names equal to the column names of \code{loss}.
 }
 \description{
 The function allows to estimate a model confidence set as described in
@@ -75,13 +75,13 @@ my.MCS[my.MCS[, "MCS p-val"] > 0.1, ] # actual, estimated MCS at alpha = 0.1
 }
 \references{
 Hansen, P. R., Lunde, A., Nason, J. M. 2011. "The Model
-  Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
+Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
 }
 \seealso{
 See \code{\link{estMCS.reg}} for the MCS methodology applied to
-  linear regression models and \code{\link{estMCS.quick}} for an implementation
-  of this function which only returns the MCS (instead of all models). See
-  \code{\link{np::b.star}} for choosing the block length \code{l}.
+linear regression models and \code{\link{estMCS.quick}} for an implementation
+of this function which only returns the MCS (instead of all models). See
+\code{\link{np::b.star}} for choosing the block length \code{l}.
 }
 \author{
 Niels Aka

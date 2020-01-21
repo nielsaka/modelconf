@@ -10,29 +10,64 @@ estMCS.reg(data, models, B = 1000, l = 2)
 \arguments{
 \item{data}{A matrix containing the data set to be used.}
 
-\item{models}{A list with one entry for each model specifying in a numerical
-vector the columns of matrix \code{data} to be used in that model.}
+\item{models}{A list with one entry for each model. Each entry is an integer
+vector that specifies the columns of matrix \code{data} to be used as a
+regressor in that model. The dependent variable must not be specified. It
+is automatically assumed to be the first column. Note that a constant will
+not be included unless it is one of the specified regressors.}
 
-\item{B}{the number of bootstrap samples.}
+\item{B}{A scalar integer; the number of bootstrap samples.}
 
-\item{l}{the block length used in the moving-block bootstrap.}
+\item{l}{A scalar integer; the block length used in the moving-block
+bootstrap.}
 }
 \value{
-...
+A matrix with the following columns:
+\itemize{
+\item -2 * log-likelihood function (Q),
+\item effective degrees of freedom (k),
+\item KLIC, KLIC MCS p-value,
+\item AIC, AIC MCS p-value,
+\item BIC, BIC MCS p-value.
+}
+
+If the list of models is named, the names will transferred to row names.
 }
 \description{
-The function allows to estimate a model confidence set a la Hansen, Lunde
-and Nason (2011) for the case of linear regression models. A matrix is
-returned that lists the entered models with their likelihood, estimated
-efficient degrees of freedom, KLIC, BIC, AIC and the MCS p-values associated
-with each information criterion.
+The function allows to estimate a model confidence set a la Hansen, Lunde and
+Nason (2011) for the case of linear regression models. A matrix is returned
+that lists the entered models with their likelihood, estimated 'efficient
+degrees of freedom', KLIC, BIC, AIC, and the MCS p-values associated with
+each information criterion.
 }
 \details{
-...
+For setting an appropriate value for the block length, check out the \code{b.star}
+function in package \code{np}.
+}
+\examples{
+data(TR_regs)
+my_data <- as.matrix(TR_regs[-(1:36),
+             c("FFR", "Constant", "GDPD.I", "GAP_HP", "UMP.gap", "Lab.Cost")])
+models <- list(
+  c(2, 3, 4, 5, 6),
+  c(2,    4, 5, 6),
+  c(2,       5, 6),
+  c(2, 3         ),
+  c(2,    4      ),
+  c(2,       5   ),
+  c(2,          6),
+  c(2, 3, 4,    6)
+)
+names(models) <- paste0("model_", seq_along(models))
+(my_mcs <- estMCS.reg(my_data, models, B = 20000, l = 5))
+
+# The estimated 90\% MCS according to AIC
+my_mcs[my_mcs[, "AIC_pval"] > 1-0.9, ]
+
 }
 \references{
 Hansen, P. R., Lunde, A., Nason, J. M. 2011. "The Model
-  Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
+Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
 }
 \seealso{
 \code{\link{estMCS}}, \code{\link{estMCS.quick}}
@@ -40,6 +75,3 @@ Hansen, P. R., Lunde, A., Nason, J. M. 2011. "The Model
 \author{
 Niels Aka
 }
-\keyword{htest}
-\keyword{models}
-\keyword{robust}

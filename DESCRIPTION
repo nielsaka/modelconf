@@ -25,5 +25,6 @@ Classification/JEL: C12, C52, C53
 LinkingTo: Rcpp
 Imports: Rcpp, RcppEigen, Matrix
 Suggests: np, knitr, rmarkdown
+Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 RoxygenNote: 6.1.0

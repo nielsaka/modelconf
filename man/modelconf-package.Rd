@@ -11,9 +11,9 @@ An alternative implementation of the Model Confidece Set (MCS).
 \details{
 Three functions implement the algorithms in Hansen, Lunde, Nason (2011).
 \itemize{
-  \item \code{\link{estMCS}}
-  \item \code{\link{estMCS.quick}}
-  \item \code{\link{estMCS.reg}}
+\item \code{\link{estMCS}}
+\item \code{\link{estMCS.quick}}
+\item \code{\link{estMCS.reg}}
 }
 }
 \references{
