@@ -1,14 +1,14 @@
 #' Estimation of model confidence sets for linear regressions using an in-sample
 #' loss measure.
-#' 
+#'
 #' The function allows to estimate a model confidence set a la Hansen, Lunde
 #' and Nason (2011) for the case of linear regression models. A matrix is
 #' returned that lists the entered models with their likelihood, estimated
 #' efficient degrees of freedom, KLIC, BIC, AIC and the MCS p-values associated
 #' with each information criterion.
-#' 
+#'
 #' ...
-#' 
+#'
 #' @param data A matrix containing the data set to be used.
 #' @param models A list with one entry for each model specifying in a numerical
 #' vector the columns of matrix \code{data} to be used in that model.
@@ -20,9 +20,8 @@
 #' @references Hansen, P. R., Lunde, A., Nason, J. M. 2011. "The Model
 #'   Confidence Set", \emph{Econometrica}, \bold{79(2)}, 453 - 497
 #' @keywords htest robust models
-#' 
-#' 
-#' 
+#'
+#'
 estMCS.reg <-
 function(data, models, B=1000, l=2) {
   n <- nrow(data)

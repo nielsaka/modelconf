@@ -26,4 +26,4 @@ LinkingTo: Rcpp
 Imports: Rcpp, RcppEigen, Matrix
 Suggests: np, knitr, rmarkdown
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0

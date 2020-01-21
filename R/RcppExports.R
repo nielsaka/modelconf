@@ -2,18 +2,18 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 colMax <- function(X) {
-    .Call('modelconf_colMax', PACKAGE = 'modelconf', X)
+    .Call('_modelconf_colMax', PACKAGE = 'modelconf', X)
 }
 
 combSimple <- function(x) {
-    .Call('modelconf_combSimple', PACKAGE = 'modelconf', x)
+    .Call('_modelconf_combSimple', PACKAGE = 'modelconf', x)
 }
 
 get_Dij <- function(bdta, index) {
-    .Call('modelconf_get_Dij', PACKAGE = 'modelconf', bdta, index)
+    .Call('_modelconf_get_Dij', PACKAGE = 'modelconf', bdta, index)
 }
 
 get_Dij_abs <- function(bdta, index) {
-    .Call('modelconf_get_Dij_abs', PACKAGE = 'modelconf', bdta, index)
+    .Call('_modelconf_get_Dij_abs', PACKAGE = 'modelconf', bdta, index)
 }
 

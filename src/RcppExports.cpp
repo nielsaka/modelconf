@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // colMax
 NumericVector colMax(NumericMatrix X);
-RcppExport SEXP modelconf_colMax(SEXP XSEXP) {
+RcppExport SEXP _modelconf_colMax(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -18,7 +18,7 @@ END_RCPP
 }
 // combSimple
 IntegerMatrix combSimple(int x);
-RcppExport SEXP modelconf_combSimple(SEXP xSEXP) {
+RcppExport SEXP _modelconf_combSimple(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -29,7 +29,7 @@ END_RCPP
 }
 // get_Dij
 NumericMatrix get_Dij(NumericMatrix bdta, NumericMatrix index);
-RcppExport SEXP modelconf_get_Dij(SEXP bdtaSEXP, SEXP indexSEXP) {
+RcppExport SEXP _modelconf_get_Dij(SEXP bdtaSEXP, SEXP indexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -41,7 +41,7 @@ END_RCPP
 }
 // get_Dij_abs
 NumericMatrix get_Dij_abs(NumericMatrix bdta, NumericMatrix index);
-RcppExport SEXP modelconf_get_Dij_abs(SEXP bdtaSEXP, SEXP indexSEXP) {
+RcppExport SEXP _modelconf_get_Dij_abs(SEXP bdtaSEXP, SEXP indexSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -50,4 +50,17 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(get_Dij_abs(bdta, index));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_modelconf_colMax", (DL_FUNC) &_modelconf_colMax, 1},
+    {"_modelconf_combSimple", (DL_FUNC) &_modelconf_combSimple, 1},
+    {"_modelconf_get_Dij", (DL_FUNC) &_modelconf_get_Dij, 2},
+    {"_modelconf_get_Dij_abs", (DL_FUNC) &_modelconf_get_Dij_abs, 2},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_modelconf(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
