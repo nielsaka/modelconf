@@ -2,6 +2,7 @@
 
 export(estMCS)
 export(estMCS.quick)
+export(estMCS.reg)
 importFrom(Rcpp,sourceCpp)
 importFrom(RcppEigen,fastLmPure)
 useDynLib(modelconf)

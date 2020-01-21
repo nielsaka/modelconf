@@ -22,6 +22,7 @@
 #' @keywords htest robust models
 #'
 #'
+#' @export
 estMCS.reg <-
 function(data, models, B=1000, l=2) {
   n <- nrow(data)
