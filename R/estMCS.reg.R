@@ -61,8 +61,8 @@ function(data, models, B=1000, l=2) {
   J <- length(models)
   boot.index <- makeIndex(B, makeBlocks(n, l))
   mcs <- matrix(, ncol=8, nrow=J,
-                dimnames = list(NULL, c("Q", "k", "KLIC", "p-val", "AIC",
-                                        "p-val", "BIC", "p-val")))
+                dimnames = list(NULL, c("Q", "k", "KLIC", "KLIC_pval", "AIC",
+                                        "AIC_pval", "BIC", "BIC_pval")))
   stats <- makeStats.reg(data, models, boot.index)
   Q <- stats$Q
   k <- stats$k
@@ -83,7 +83,8 @@ function(data, models, B=1000, l=2) {
         b.t.R <- as.matrix(b.t.R)
       }
       ij.index <- combSimple(J - j + 1)
-      kick <- which(max(IC) == IC)
+      kick <- which.max(IC)
+      # TODO: may select multiple models at this stage!
       kick.many <- rowSums(ij.index == kick) == 0
       p.val <- mean.fast(b.T.R - T.R >= 0)
       mcs[model.index[kick], i + 1] <- max(c(mcs[, i + 1], p.val),
@@ -95,5 +96,6 @@ function(data, models, B=1000, l=2) {
     }
     mcs[model.index, i + 1] <- 1
   }
+  rownames(mcs) <- names(models)
   return(mcs)
 }
